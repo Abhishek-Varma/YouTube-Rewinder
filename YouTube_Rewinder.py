@@ -14,8 +14,19 @@ search_field.send_keys(Keys.RETURN)
 wait = WebDriverWait(chromeDriver, 10)
 try:
 	wait.until(EC.title_contains(song_to_search))
-	song_link = chromeDriver.find_element_by_xpath("//ytd-video-renderer[1]/div/ytd-thumbnail/a[1]")
-	print(song_link.get_attribute('href'))
 except:
 	print("It took longer than 10 seconds. Check your net connectivity!")
 	chromeDriver.quit()
+
+song = chromeDriver.find_element_by_xpath("//ytd-video-renderer[1]/div/ytd-thumbnail/a[1]")
+song.click()
+
+# try:
+# 	# need to wait until url changes. Only after that should I wait for the 'video' to be present!
+# 	video = wait.until(EC.presence_of_element_located("//video[1]"))
+# except:
+# 	print("2nd wala. It took longer than 10 seconds. Check your net connectivity!")
+# 	chromeDriver.quit()
+
+# time_duration = chromeDriver.find_element_by_xpath("//span[@class='ytp-time-duration']").getText()
+# print(time_duration)
