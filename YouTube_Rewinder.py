@@ -9,7 +9,6 @@ def YouTube_Rewind():
 	for song_to_search in song_list:
 		search_field = chromeDriver.find_element_by_xpath("//input[@id='search']")
 		search_field.clear() # clears any character (if any) present in input field
-		# song_to_search = "Abhishek Varma Bekhayali"
 		search_field.send_keys(song_to_search)
 		search_field.send_keys(Keys.RETURN)
 
